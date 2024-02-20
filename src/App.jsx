@@ -1,7 +1,10 @@
 import React from "react";
 import Navbar from "./Navbar";
 import HeroSection from "./HeroSection";
+import Feature from "./Feature";
 import SubHeroSection from "./SubHeroSection";
+import Testimonial from "./Testimonial";
+import Footer from "./Footer";
 
 const App = () => {
   return (
@@ -11,7 +14,10 @@ const App = () => {
     >
       <Navbar />
       <HeroSection />
+      <Feature />
       <SubHeroSection />
+      <Testimonial />
+      <Footer />
     </div>
   );
 };
