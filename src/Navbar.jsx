@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "./assets/Logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -8,15 +9,24 @@ const Navbar = () => {
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
           <div className="col-span-1 flex justify-start">
             <div className="w-3/4 md:w-full">
-              <img src={Logo} alt="Logo" className="w-fit-content" />
+              <Link to="/">
+                <img src={Logo} alt="Logo" className="w-fit-content" />
+              </Link>
             </div>
             <div className="text-gray-400 text-center"></div>
           </div>
 
           <div className="col-span-2 flex justify-center items-center">
-            <a href="#" className="text-gray-400 hover:text-white mr-6">
-              Recipes
-            </a>
+            <ul className="flex space-x-4">
+              <li>
+                <Link
+                  to="/recipes"
+                  className="text-gray-400 hover:text-white mr-6"
+                >
+                  Recipes
+                </Link>
+              </li>
+            </ul>
           </div>
 
           <div className="col-span-1 text-gray-400 flex justify-end items-center">
@@ -36,4 +46,5 @@ const Navbar = () => {
     </nav>
   );
 };
+
 export default Navbar;
