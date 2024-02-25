@@ -37,7 +37,7 @@ const Navbar = () => {
                   to="/recipes"
                   className="text-gray-400 hover:text-white mr-6"
                 >
-                  Recipes
+                  All Recipes
                 </Link>
               </li>
               {isLoggedIn && (
@@ -46,7 +46,7 @@ const Navbar = () => {
                     to="/admin"
                     className="text-gray-400 hover:text-white mr-6"
                   >
-                    My Admin
+                    List your recipe
                   </Link>
                 </li>
               )}
