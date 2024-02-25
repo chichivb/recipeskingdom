@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./assets/Logo.png";
 import { Link } from "react-router-dom";
 import { useModal } from "./contexts/modal-context";
 import LoginModal from "./modals/LoginModal";
 
 const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const { openModal } = useModal();
 
   const handleLoginClick = () => {
@@ -34,6 +35,16 @@ const Navbar = () => {
                   Recipes
                 </Link>
               </li>
+              {isLoggedIn && (
+                <li>
+                  <Link
+                    to="/admin"
+                    className="text-gray-400 hover:text-white mr-6"
+                  >
+                    My Admin
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
 

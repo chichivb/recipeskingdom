@@ -30,7 +30,7 @@ const PadThai = () => {
   const { openModal } = useModal();
 
   const handleLoginClick = () => {
-    openModal(<BuyModal />);
+    openModal(<BuyModal name="Pad thai" />);
   };
 
   return (
