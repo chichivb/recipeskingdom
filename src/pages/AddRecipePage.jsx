@@ -128,7 +128,7 @@ const AddRecipe = () => {
                 htmlFor="salePrice"
                 className="block text-lg font-semibold mb-2"
               >
-                Sale Price (Euro)
+                Sale Price €
               </label>
               <input
                 type="text"

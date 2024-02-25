@@ -3,6 +3,7 @@ import Logo from "./assets/Logo.png";
 import { Link } from "react-router-dom";
 import { useModal } from "./contexts/modal-context";
 import LoginModal from "./modals/LoginModal";
+import SignupModal from "./modals/SignupModal";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -10,6 +11,10 @@ const Navbar = () => {
 
   const handleLoginClick = () => {
     openModal(<LoginModal />);
+  };
+
+  const handleSignupClick = () => {
+    openModal(<SignupModal />);
   };
 
   return (
@@ -57,7 +62,10 @@ const Navbar = () => {
                 >
                   LOG IN
                 </button>
-                <button className="bg-rk-alto-950 text-rk-masala-50 px-5 py-3 rounded-md text-sm font-medium">
+                <button
+                  className="bg-rk-alto-950 text-rk-masala-50 px-5 py-3 rounded-md text-sm font-medium"
+                  onClick={handleSignupClick}
+                >
                   SIGN UP
                 </button>
               </div>

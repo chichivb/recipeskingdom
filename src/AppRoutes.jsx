@@ -6,6 +6,7 @@ import PadThai from "./pages/PadThai";
 import AdminLayout from "./AdminLayout";
 import AdminSettingsPage from "./pages/AdminSettingsPage";
 import AddRecipePage from "./pages/AddRecipePage";
+import DashboardPage from "./pages/DashboardPage";
 
 const AppRoutes = () => {
   return (
@@ -17,7 +18,7 @@ const AppRoutes = () => {
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<AdminSettingsPage />} />
           <Route path="/admin/add-recipe" element={<AddRecipePage />} />
-          <Route index element={<AddRecipePage />} />
+          <Route path="/admin/dashboard" element={<DashboardPage />} />
         </Route>
       </Route>
     </Routes>
