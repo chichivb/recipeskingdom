@@ -1,8 +1,16 @@
 import React from "react";
 import Logo from "./assets/Logo.png";
 import { Link } from "react-router-dom";
+import { useModal } from "./contexts/modal-context";
+import LoginModal from "./modals/LoginModal";
 
 const Navbar = () => {
+  const { openModal } = useModal();
+
+  const handleLoginClick = () => {
+    openModal(<LoginModal />);
+  };
+
   return (
     <nav className="text-rk-alto-300 py-2">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
@@ -32,7 +40,10 @@ const Navbar = () => {
           <div className="col-span-1 text-gray-400 flex justify-end items-center">
             <nav>
               <div className="col-span-2 flex justify-center items-center">
-                <button className="hover:text-rk-alto-950 px-4 py-3 rounded-md text-sm font-medium">
+                <button
+                  className="hover:text-rk-alto-950 px-4 py-3 rounded-md text-sm font-medium"
+                  onClick={handleLoginClick}
+                >
                   LOG IN
                 </button>
                 <button className="bg-rk-alto-950 text-rk-masala-50 px-5 py-3 rounded-md text-sm font-medium">
