@@ -1,23 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import { useAuth } from "../contexts/auth-context";
+import { useModal } from "../contexts/modal-context";
 
 const LoginModal = () => {
-  useEffect(() => {
-    console.log("Modal opens");
-  }, []);
-  // const { isOpen, closeModal } = useModal();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
-  const handleCloseModalClick = () => {
-    console.log("looogin modal");
-    //   closeModal();
-  };
+  const { login } = useAuth();
+  const { closeModal } = useModal();
 
-  const handleModalContentClick = (e) => {
-    e.stopPropagation(); // Prevent event propagation
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Implement signup logic here
+    console.log("Signing up:", { email, password });
+    const response = login(email, password);
+    if (response) {
+      // modal close
+      closeModal();
+    }
+    setError(true);
   };
 
   return (
     <div className="px-8 py-4">
       <h1 className="text-2xl mb-4">Login</h1>
+      {error && <p className="text-red-500 mb-4">Wrong email or password</p>}
 
       <form>
         <div className="mb-4">
@@ -29,6 +37,8 @@ const LoginModal = () => {
             id="email"
             name="email"
             className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="mb-6">
@@ -43,11 +53,14 @@ const LoginModal = () => {
             id="password"
             name="password"
             className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <button
           type="submit"
           className=" bg-green-500 text-white py-2 px-4 rounded-md hover:bg-rk-alto-950 focus:outline-none focus:bg-indigo-600"
+          onClick={handleLogin}
         >
           Login
         </button>

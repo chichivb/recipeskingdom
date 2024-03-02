@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import { useModal } from "../contexts/modal-context";
 import recipe1 from "../assets/padthai.jpeg";
 import BuyModal from "../modals/BuyModal";
+import { useRecipe } from "../contexts/recipe-context";
 
 const Tab = ({ tab, activeTab, setActiveTab }) => {
   const isActive = tab === activeTab;
@@ -27,7 +30,31 @@ const TabContent = ({ children, activeTab }) => {
 const PadThai = () => {
   const [activeTab, setActiveTab] = useState("Ingredients");
 
+  const { id } = useParams();
+
+  const { getRecipeById } = useRecipe();
   const { openModal } = useModal();
+
+  const [recipeData, setRecipeData] = useState({
+    title: "",
+    description: "",
+    cookingTime: "15",
+    servings: "2",
+    ingredients: "",
+    instructions: "",
+    salePrice: "",
+    heroImage: null,
+    thumbnail: null,
+  });
+
+  // Effect to fetch logged-in user's information when the component mounts
+  useEffect(() => {
+    const allRecipes = getRecipeById(id);
+
+    if (allRecipes) {
+      setRecipeData(allRecipes);
+    }
+  }, [getRecipeById, id]);
 
   const handleLoginClick = () => {
     openModal(<BuyModal name="Pad thai" />);
@@ -39,7 +66,7 @@ const PadThai = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           <div>
             <h1 className="text-5xl lg:text-5xl font-bold text-gray-800 mb-4">
-              Pad Thai with King Prawns
+              {recipeData.title}
             </h1>
             <button className="text-xl text-gray-600 bg-white border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-rk-masala-500 focus:ring-opacity-50">
               30 minutes

@@ -4,17 +4,20 @@ import { Link } from "react-router-dom";
 import { useModal } from "./contexts/modal-context";
 import LoginModal from "./modals/LoginModal";
 import SignupModal from "./modals/SignupModal";
+import { useAuth } from "./contexts/auth-context";
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const { openModal } = useModal();
-
+  const { isLoggedIn, logout } = useAuth();
   const handleLoginClick = () => {
     openModal(<LoginModal />);
   };
 
   const handleSignupClick = () => {
     openModal(<SignupModal />);
+  };
+  const handleLogoutClick = () => {
+    logout();
   };
 
   return (
@@ -56,18 +59,29 @@ const Navbar = () => {
           <div className="col-span-1 text-gray-400 flex justify-end items-center">
             <nav>
               <div className="col-span-2 flex justify-center items-center">
-                <button
-                  className="hover:text-rk-alto-950 px-4 py-3 rounded-md text-sm font-medium"
-                  onClick={handleLoginClick}
-                >
-                  LOG IN
-                </button>
-                <button
-                  className="bg-rk-alto-950 text-rk-masala-50 px-5 py-3 rounded-md text-sm font-medium"
-                  onClick={handleSignupClick}
-                >
-                  SIGN UP
-                </button>
+                {isLoggedIn ? (
+                  <button
+                    className="hover:text-rk-alto-950 px-4 py-3 rounded-md text-sm font-medium"
+                    onClick={handleLogoutClick}
+                  >
+                    LOG OUT
+                  </button>
+                ) : (
+                  <>
+                    <button
+                      className="hover:text-rk-alto-950 px-4 py-3 rounded-md text-sm font-medium"
+                      onClick={handleLoginClick}
+                    >
+                      LOG IN
+                    </button>
+                    <button
+                      className="bg-rk-alto-950 text-rk-masala-50 px-5 py-3 rounded-md text-sm font-medium"
+                      onClick={handleSignupClick}
+                    >
+                      SIGN UP
+                    </button>
+                  </>
+                )}
               </div>
             </nav>
           </div>

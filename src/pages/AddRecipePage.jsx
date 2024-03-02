@@ -1,15 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/auth-context";
+import { useRecipe } from "../contexts/recipe-context";
 
 const AddRecipe = () => {
+  const { getLoggedInUser } = useAuth();
+  const { addRecipe } = useRecipe();
+
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+    userId: "",
+  });
+
+  // Effect to fetch logged-in user's information when the component mounts
+  useEffect(() => {
+    const loggedInUser = getLoggedInUser();
+
+    if (loggedInUser) {
+      setUser(loggedInUser);
+    }
+  }, [getLoggedInUser]);
+
   const [recipeData, setRecipeData] = useState({
-    name: "",
-    cookingTime: "",
-    servings: "",
+    title: "",
+    description: "",
+    cookingTime: "15",
+    servings: "2",
     ingredients: "",
     instructions: "",
     salePrice: "",
     heroImage: null,
+    thumbnail: null,
   });
 
   const handleInputChange = (e) => {
@@ -22,32 +45,66 @@ const AddRecipe = () => {
     setRecipeData({ ...recipeData, heroImage: file });
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const { name } = e.target;
+  //   console.log("name > ", name)
+  //   // Handle form submission (e.g., save data to database)
+  //   console.log("Recipe data:", recipeData);
+  // };
+
+  const handleDraftClick = (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., save data to database)
     console.log("Recipe data:", recipeData);
+    console.log("user.userId >> ", user.userId);
+
+    addRecipe(user.userId, recipeData, false);
+  };
+
+  const handlePublishClick = (e) => {
+    e.preventDefault();
+    // recipeData.userId = user.userId
+    console.log("Recipe data:", recipeData);
+    console.log("user.userId >> ", user.userId);
+    addRecipe(user.userId, recipeData, true);
   };
 
   return (
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form className="space-y-4">
             <h1 className="text-5xl lg:text-5xl font-bold text-gray-800 mb-4">
               Add Recipe
             </h1>
             <div>
               <label
-                htmlFor="name"
+                htmlFor="title"
                 className="block text-lg font-semibold mb-2"
               >
                 Name of the Recipe
               </label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={recipeData.name}
+                id="title"
+                name="title"
+                value={recipeData.title}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="description"
+                className="block text-lg font-semibold mb-2"
+              >
+                Description of the Recipe
+              </label>
+              <input
+                type="text"
+                id="description"
+                name="description"
+                value={recipeData.description}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
               />
@@ -74,15 +131,15 @@ const AddRecipe = () => {
             </div>
             <div>
               <label
-                htmlFor="cookingTime"
+                htmlFor="servings"
                 className="block text-lg font-semibold mb-2"
               >
                 Serving Size
               </label>
               <select
-                id="cookingTime"
-                name="cookingTime"
-                value={recipeData.cookingTime}
+                id="servings"
+                name="servings"
+                value={recipeData.servings}
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
               >
@@ -128,7 +185,7 @@ const AddRecipe = () => {
                 htmlFor="salePrice"
                 className="block text-lg font-semibold mb-2"
               >
-                Sale Price (Euro)
+                Sale Price €
               </label>
               <input
                 type="text"
@@ -141,14 +198,16 @@ const AddRecipe = () => {
             </div>
             <div className="flex justify-between">
               <button
-                type="submit"
+                type="button"
+                onClick={handleDraftClick}
                 className="text-lg font-semibold text-white bg-green-500 px-6 py-3 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
               >
                 Save Draft
               </button>
               <button
-                type="submit"
-                className="text-lg font-semibold text-white bg-rk-alto-950 text-rk-masala-50 px-5 py-3 rounded-md text-sm font-medium"
+                type="button"
+                onClick={handlePublishClick}
+                className="text-lg font-semibold text-white bg-blue-500 px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
               >
                 Publish
               </button>

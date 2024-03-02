@@ -1,19 +1,33 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useModal } from "../contexts/modal-context";
+import { useAuth } from "../contexts/auth-context";
 
-const SignupModal = ({ switchToLogin }) => {
+const SignupModal = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+
+  const { closeModal } = useModal();
+
+  const { register } = useAuth();
 
   const handleSignup = (e) => {
     e.preventDefault();
-    // Implement signup logic here
+    // Implement signup logic
     console.log("Signing up:", { fullName, email, password });
+    const response = register(fullName, email, password);
+    if (response) {
+      // modal close
+      closeModal();
+    }
+    setError(true);
   };
 
   return (
     <div className="px-8 py-4">
       <h1 className="text-2xl mb-4">Create Account</h1>
+      {error && <p className="text-red-500 mb-4">Email is taken</p>}
 
       <form onSubmit={handleSignup}>
         <div className="mb-4">

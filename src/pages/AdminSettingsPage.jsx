@@ -1,20 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useAuth } from "../contexts/auth-context";
 
 const AdminSettingsPage = () => {
-  const [name, setName] = useState("John Doe");
-  const [email, setEmail] = useState("john@example.com");
-  const [about, setAbout] = useState("This is my about me section.");
+  const { getLoggedInUser } = useAuth();
 
+  const [user, setUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  useEffect(() => {
+    const loggedInUser = getLoggedInUser();
+
+    if (loggedInUser) {
+      setUser(loggedInUser);
+    }
+  }, [getLoggedInUser]);
+
+  // Event handlers to update user information
   const handleNameChange = (e) => {
-    setName(e.target.value);
+    setUser({ ...user, username: e.target.value });
   };
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    setUser({ ...user, email: e.target.value });
   };
 
   const handleAboutChange = (e) => {
-    setAbout(e.target.value);
+    setUser({ ...user, about: e.target.value });
   };
 
   const handleProfilePictureChange = (e) => {
@@ -37,7 +51,7 @@ const AdminSettingsPage = () => {
             <input
               type="text"
               id="name"
-              value={name}
+              value={user.username}
               onChange={handleNameChange}
               className="w-full border rounded-md px-3 py-2"
             />
@@ -49,7 +63,7 @@ const AdminSettingsPage = () => {
             <input
               type="email"
               id="email"
-              value={email}
+              value={user.email}
               onChange={handleEmailChange}
               className="w-full border rounded-md px-3 py-2"
             />
@@ -60,7 +74,7 @@ const AdminSettingsPage = () => {
             </label>
             <textarea
               id="about"
-              value={about}
+              //value={user.about}
               onChange={handleAboutChange}
               className="w-full border rounded-md px-3 py-2"
               rows={5}
