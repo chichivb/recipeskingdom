@@ -3,8 +3,10 @@ import recipe1 from "./assets/padthai.jpeg";
 import recipe2 from "./assets/spanakopita.jpeg";
 import recipe3 from "./assets/pan-fried.jpeg";
 import recipe4 from "./assets/Avocado-tomato.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const SubHeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="bg-gray-200 py-2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -136,7 +138,10 @@ const SubHeroSection = () => {
           </div>
         </div>
         <div className="flex justify-center mt-8">
-          <button className="bg-rk-alto-950 text-rk-masala-50 px-4 py-2 rounded-md text-sm font-medium">
+          <button
+            className="bg-rk-alto-950 text-rk-masala-50 px-4 py-2 rounded-md text-sm font-medium"
+            onClick={() => navigate("/recipes")}
+          >
             VIEW MORE
           </button>
         </div>
