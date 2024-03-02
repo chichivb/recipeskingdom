@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 
 const LoginModal = () => {
+  useEffect(() => {
+    console.log("Modal opens");
+  }, []);
+  // const { isOpen, closeModal } = useModal();
+
   const handleCloseModalClick = () => {
     console.log("looogin modal");
     //   closeModal();
@@ -42,7 +47,7 @@ const LoginModal = () => {
         </div>
         <button
           type="submit"
-          className="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
+          className=" bg-green-500 text-white py-2 px-4 rounded-md hover:bg-rk-alto-950 focus:outline-none focus:bg-indigo-600"
         >
           Login
         </button>

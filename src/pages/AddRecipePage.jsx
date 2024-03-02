@@ -128,7 +128,7 @@ const AddRecipe = () => {
                 htmlFor="salePrice"
                 className="block text-lg font-semibold mb-2"
               >
-                Sale Price €
+                Sale Price (Euro)
               </label>
               <input
                 type="text"
@@ -148,7 +148,7 @@ const AddRecipe = () => {
               </button>
               <button
                 type="submit"
-                className="text-lg font-semibold text-white bg-blue-500 px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                className="text-lg font-semibold text-white bg-rk-alto-950 text-rk-masala-50 px-5 py-3 rounded-md text-sm font-medium"
               >
                 Publish
               </button>

@@ -63,7 +63,7 @@ const SignupModal = ({ switchToLogin }) => {
         </div>
         <button
           type="submit"
-          className="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600 mr-2"
+          className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600 mr-2"
         >
           Create Account
         </button>

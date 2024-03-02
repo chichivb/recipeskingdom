@@ -94,7 +94,7 @@ const DashboardPage = () => {
       </table>
       <div className="mt-4">
         <button
-          className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          className="bg-rk-alto-950 text-rk-masala-50 px-5 py-3 rounded-md text-sm font-medium"
           onClick={handlePayout}
         >
           Payout
