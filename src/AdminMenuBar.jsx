@@ -17,9 +17,7 @@ const AdminMenuBar = () => {
             <li>
               <Link to="/admin/add-recipe">Add Recipe</Link>
             </li>
-            <li>
-              <Link to="/admin/edit-recipe">Edit Recipe</Link>
-            </li>
+
             <li>
               <Link to="/admin">Settings</Link>
             </li>
