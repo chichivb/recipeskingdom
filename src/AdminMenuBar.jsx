@@ -17,15 +17,6 @@ const AdminMenuBar = () => {
           <ul className="space-y-2">
             <li>
               <Link
-                to="/admin/dashboard"
-                className="flex items-center space-x-2"
-              >
-                <FiHome className="text-xl" /> {/* Home icon */}
-                Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link
                 to="/admin/my-recipes"
                 className="flex items-center space-x-2"
               >
