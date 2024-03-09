@@ -47,23 +47,27 @@ const DashboardPage = () => {
   };
 
   return (
-    <div>
+    <div className="p-8">
       <h1 className="text-3xl font-bold mb-4">Sales Dashboard</h1>
-      <div className="mb-4">
-        <label className="mr-2">Select Date Range:</label>
-        <select
-          className="border border-gray-300 px-3 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          onChange={handleDateRangeChange}
-        >
-          <option value="7days">Last 7 Days</option>
-          <option value="30days">Last 30 Days</option>
-          <option value="90days">Last 90 Days</option>
-        </select>
-      </div>
-      <div className="mb-4">
-        <p>Total Published Recipes: {totalPublishedRecipes}</p>
-        <p>Total Draft Recipes: {totalDraftRecipes}</p>
-        <p>Total Revenue Earned: €{totalRevenueEarned}</p>
+      <div className="mb-4 flex justify-between">
+        <div className="w-1/3 mr-4">
+          <div className="bg-gray-100 p-4 rounded-lg">
+            <h2 className="text-lg font-bold mb-2">Published</h2>
+            <p className="text-xl font-semibold">{totalPublishedRecipes}</p>
+          </div>
+        </div>
+        <div className="w-1/3 mr-4">
+          <div className="bg-gray-100 p-4 rounded-lg">
+            <h2 className="text-lg font-bold mb-2">Draft</h2>
+            <p className="text-xl font-semibold">{totalDraftRecipes}</p>
+          </div>
+        </div>
+        <div className="w-1/3">
+          <div className="bg-gray-100 p-4 rounded-lg">
+            <h2 className="text-lg font-bold mb-2">Revenue</h2>
+            <p className="text-xl font-semibold">€{totalRevenueEarned}</p>
+          </div>
+        </div>
       </div>
       <h2 className="text-lg font-semibold mb-2">Transaction History</h2>
       <table className="w-full">
@@ -94,7 +98,7 @@ const DashboardPage = () => {
       </table>
       <div className="mt-4">
         <button
-          className="bg-rk-alto-950 text-rk-masala-50 px-5 py-3 rounded-md text-sm font-medium"
+          className="bg-blue-500 text-white px-4 py-2 rounded-md"
           onClick={handlePayout}
         >
           Payout

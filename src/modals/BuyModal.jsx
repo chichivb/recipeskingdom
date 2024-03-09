@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import StripeComponent from "../StripeComponent";
+import Payment from "../Payment";
 
 const BuyModal = ({ name }) => {
   const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ const BuyModal = ({ name }) => {
 
   return (
     <div className="bg-white w-96 p-8 rounded-lg">
-      <StripeComponent />
+      <Payment />
     </div>
   );
 };
