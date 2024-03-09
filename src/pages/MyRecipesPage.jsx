@@ -23,7 +23,6 @@ const MyRecipesPage = () => {
       if (loggedInUser) {
         setUser(loggedInUser);
         const recipes = await getRecipesByUserId(loggedInUser.userId);
-        console.log(recipes);
         setUserRecipes(recipes);
       }
     };
@@ -31,22 +30,23 @@ const MyRecipesPage = () => {
     fetchUserAndRecipes();
   }, [getLoggedInUser, getRecipesByUserId]);
 
-  const handlePublish = (recipeId) => {
-    updateRecipe(recipeId, { published: true });
-    const recipes = getRecipesByUserId(user.userId);
+  const handlePublish = async (recipeId) => {
+    await updateRecipe(recipeId, { published: true });
+    const recipes = await getRecipesByUserId(user.userId);
     setUserRecipes(recipes);
   };
-  const handleUnpublish = (recipeId) => {
-    updateRecipe(recipeId, { published: false });
-    const recipes = getRecipesByUserId(user.userId);
+  const handleUnpublish = async (recipeId) => {
+    await updateRecipe(recipeId, { published: false });
+    const recipes = await getRecipesByUserId(user.userId);
     setUserRecipes(recipes);
   };
 
-  const handleRemoveRecipe = (recipeId) => {
-    deleteRecipe(recipeId);
-    const recipes = getRecipesByUserId(user.userId);
+  const handleRemoveRecipe = async (recipeId) => {
+    await deleteRecipe(recipeId);
+    const recipes = await getRecipesByUserId(user.userId);
     setUserRecipes(recipes);
   };
+
   // Example of displaying the recipes
   return (
     <div className="container mx-auto px-4 py-8">
@@ -59,6 +59,15 @@ const MyRecipesPage = () => {
           >
             <span>{recipe.title}</span>
             <div>
+              {recipe.published ? (
+                <span className="bg-green-500 text-white font-bold py-1 px-2 rounded mr-2">
+                  Published
+                </span>
+              ) : (
+                <span className="bg-red-500 text-white font-bold py-1 px-2 rounded mr-2">
+                  Draft
+                </span>
+              )}
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
                 onClick={() => navigate(`/admin/edit-recipe/${recipe.id}`)}
@@ -67,14 +76,14 @@ const MyRecipesPage = () => {
               </button>
               {recipe.published ? (
                 <button
-                  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2"
                   onClick={() => handleUnpublish(recipe.id)}
                 >
                   Unpublish
                 </button>
               ) : (
                 <button
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                  className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
                   onClick={() => handlePublish(recipe.id)}
                 >
                   Publish
