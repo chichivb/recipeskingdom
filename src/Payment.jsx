@@ -60,3 +60,8 @@ function Payment() {
 }
 
 export default Payment;
+
+//useState and useEffect help to assemble componenets
+//useState gives possiblity to track and update part when neeed
+// for this payment we use usestage to hold and image information
+// and useEffect for to fetch data
