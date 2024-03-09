@@ -1,24 +1,30 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/auth-context";
+import { convertBase64 } from "../helpers";
 
 const AdminSettingsPage = () => {
-  const { getLoggedInUser } = useAuth();
+  const { loggedInUser, update } = useAuth();
 
   const [user, setUser] = useState({
+    id: "",
     username: "",
     email: "",
-    password: "",
+    about: "",
+    avatar: "",
   });
 
   useEffect(() => {
-    const loggedInUser = getLoggedInUser();
-
     if (loggedInUser) {
-      setUser(loggedInUser);
+      setUser({
+        id: loggedInUser.id,
+        username: loggedInUser.username,
+        email: loggedInUser.email,
+        about: loggedInUser.about,
+        avatar: loggedInUser.avatar,
+      });
     }
-  }, [getLoggedInUser]);
+  }, [loggedInUser]);
 
-  // Event handlers to update user information
   const handleNameChange = (e) => {
     setUser({ ...user, username: e.target.value });
   };
@@ -31,12 +37,14 @@ const AdminSettingsPage = () => {
     setUser({ ...user, about: e.target.value });
   };
 
-  const handleProfilePictureChange = (e) => {
-    // Logic to handle profile picture upload
+  const handleProfilePictureChange = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    setUser({ ...user, avatar: base64 });
   };
 
-  const handleDeleteAccount = () => {
-    // Logic to delete account
+  const handleSaveAccount = () => {
+    update(user);
   };
 
   return (
@@ -74,17 +82,17 @@ const AdminSettingsPage = () => {
             </label>
             <textarea
               id="about"
-              //value={user.about}
+              value={user.about}
               onChange={handleAboutChange}
               className="w-full border rounded-md px-3 py-2"
               rows={5}
             />
           </div>
           <button
-            onClick={handleDeleteAccount}
-            className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+            onClick={handleSaveAccount}
+            className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
           >
-            Delete Account
+            Save
           </button>
         </div>
         <div>
@@ -98,7 +106,9 @@ const AdminSettingsPage = () => {
               onChange={handleProfilePictureChange}
             />
           </div>
-          <div>{/* Display uploaded profile picture here */}</div>
+          {user.avatar && (
+            <img src={user.avatar} alt="Hero" className="mt-4 w-full" />
+          )}
         </div>
       </div>
     </div>

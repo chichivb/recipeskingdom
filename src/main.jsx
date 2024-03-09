@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import LandingPage from "./pages/LandingPage";
 import RecipesPage from "./pages/RecipesPage";
-import PadThai from "./pages/PadThai";
+import RecipePage from "./pages/RecipePage";
 import AdminLayout from "./AdminLayout";
 import AdminSettingsPage from "./pages/AdminSettingsPage";
 import AddRecipePage from "./pages/AddRecipePage";
@@ -15,12 +15,12 @@ import Completion from "./Completion";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<LandingPage />} />
           <Route path="/recipes" element={<RecipesPage />} />
-          <Route path="/recipes/:id" element={<PadThai />} />
+          <Route path="/recipes/:id" element={<RecipePage />} />
           <Route path="/completion" element={<Completion />} />
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminSettingsPage />} />
@@ -30,7 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </Route>
         </Route>
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

@@ -1,27 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { useAuth } from "../contexts/auth-context";
-import { useRecipe } from "../contexts/recipe-context";
+
+import { convertBase64, addRecipe } from "../helpers";
 
 const AddRecipe = () => {
-  const { getLoggedInUser } = useAuth();
-  const { addRecipe } = useRecipe();
-
-  const [user, setUser] = useState({
-    username: "",
-    email: "",
-    password: "",
-    userId: "",
-  });
-
-  // Effect to fetch logged-in user's information when the component mounts
-  useEffect(() => {
-    const loggedInUser = getLoggedInUser();
-
-    if (loggedInUser) {
-      setUser(loggedInUser);
-    }
-  }, [getLoggedInUser]);
+  const { loggedInUser } = useAuth();
 
   const [recipeData, setRecipeData] = useState({
     title: "",
@@ -40,33 +23,20 @@ const AddRecipe = () => {
     setRecipeData({ ...recipeData, [name]: value });
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const file = e.target.files[0];
-    setRecipeData({ ...recipeData, heroImage: file });
+    const base64 = await convertBase64(file);
+    setRecipeData({ ...recipeData, heroImage: base64 });
   };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const { name } = e.target;
-  //   console.log("name > ", name)
-  //   // Handle form submission (e.g., save data to database)
-  //   console.log("Recipe data:", recipeData);
-  // };
 
   const handleDraftClick = (e) => {
     e.preventDefault();
-    console.log("Recipe data:", recipeData);
-    console.log("user.userId >> ", user.userId);
-
-    addRecipe(user.userId, recipeData, false);
+    addRecipe(loggedInUser.userId, recipeData, false);
   };
 
   const handlePublishClick = (e) => {
     e.preventDefault();
-    // recipeData.userId = user.userId
-    console.log("Recipe data:", recipeData);
-    console.log("user.userId >> ", user.userId);
-    addRecipe(user.userId, recipeData, true);
+    addRecipe(loggedInUser.userId, recipeData, true);
   };
 
   return (
@@ -230,7 +200,7 @@ const AddRecipe = () => {
               />
               {recipeData.heroImage && (
                 <img
-                  src={URL.createObjectURL(recipeData.heroImage)}
+                  src={recipeData.heroImage}
                   alt="Hero"
                   className="mt-4 w-full"
                 />

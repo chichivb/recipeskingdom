@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useRecipe } from "../contexts/recipe-context";
+import { useEffect, useState } from "react";
+
 import { useAuth } from "../contexts/auth-context";
 import { useNavigate } from "react-router-dom";
+import { getRecipesByUserId, updateRecipe, deleteRecipe } from "../helpers";
 
 const MyRecipesPage = () => {
   const [user, setUser] = useState({
@@ -12,14 +13,11 @@ const MyRecipesPage = () => {
   });
 
   const [userRecipes, setUserRecipes] = useState([]);
-  const { getLoggedInUser } = useAuth();
-  const { getRecipesByUserId, updateRecipe, deleteRecipe } = useRecipe();
+  const { loggedInUser } = useAuth();
 
   const navigate = useNavigate();
   useEffect(() => {
     const fetchUserAndRecipes = async () => {
-      const loggedInUser = await getLoggedInUser();
-
       if (loggedInUser) {
         setUser(loggedInUser);
         const recipes = await getRecipesByUserId(loggedInUser.userId);
@@ -28,7 +26,7 @@ const MyRecipesPage = () => {
     };
 
     fetchUserAndRecipes();
-  }, [getLoggedInUser, getRecipesByUserId]);
+  }, [loggedInUser]);
 
   const handlePublish = async (recipeId) => {
     await updateRecipe(recipeId, { published: true });

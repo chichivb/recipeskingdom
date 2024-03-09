@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar";
-import recipe1 from "../assets/padthai.jpeg";
-import recipe2 from "../assets/spanakopita.jpeg";
-import recipe3 from "../assets/pan-fried.jpeg";
-import recipe4 from "../assets/Avocado-tomato.jpeg";
-import { useRecipe } from "../contexts/recipe-context";
+import { getAllPublishedRecipes } from "../helpers";
 
 const RecipesPage = () => {
   const navigate = useNavigate();
-
-  const { getAllPublishedRecipes } = useRecipe();
 
   const [recipeData, setRecipeData] = useState([]);
 
@@ -21,7 +15,7 @@ const RecipesPage = () => {
     if (allRecipes) {
       setRecipeData(allRecipes);
     }
-  }, [getAllPublishedRecipes]);
+  }, []);
 
   return (
     <>
@@ -38,7 +32,7 @@ const RecipesPage = () => {
                 onClick={() => navigate(recipe.id)}
               >
                 <img
-                  src={recipe1}
+                  src={recipe.heroImage}
                   alt={`Recipe ${recipe.id}`}
                   className="w-full h-64 object-cover object-center"
                 />

@@ -6,7 +6,7 @@ import Navbar from "../Navbar";
 import { useModal } from "../contexts/modal-context";
 import recipe1 from "../assets/padthai.jpeg";
 import BuyModal from "../modals/BuyModal";
-import { useRecipe } from "../contexts/recipe-context";
+import { getRecipeById } from "../helpers";
 
 const Tab = ({ tab, activeTab, setActiveTab }) => {
   const isActive = tab === activeTab;
@@ -27,12 +27,11 @@ const TabContent = ({ children, activeTab }) => {
   return <div>{activeTab && children}</div>;
 };
 
-const PadThai = () => {
+const RecipePage = () => {
   const [activeTab, setActiveTab] = useState("Ingredients");
 
   const { id } = useParams();
 
-  const { getRecipeById } = useRecipe();
   const { openModal } = useModal();
 
   const [recipeData, setRecipeData] = useState({
@@ -54,10 +53,10 @@ const PadThai = () => {
     if (allRecipes) {
       setRecipeData(allRecipes);
     }
-  }, [getRecipeById, id]);
+  }, [id]);
 
   const handleLoginClick = () => {
-    openModal(<BuyModal name="Pad thai" />);
+    openModal(<BuyModal name="Recipe" />);
   };
 
   return (
@@ -69,10 +68,13 @@ const PadThai = () => {
               {recipeData.title}
             </h1>
             <button className="text-xl text-gray-600 bg-white border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-rk-masala-500 focus:ring-opacity-50">
-              30 minutes
+              {recipeData.cookingTime} minutes
             </button>
             <button className="text-xl text-gray-600 bg-white border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-rk-masala-500 focus:ring-opacity-50">
-              2 servings
+              {recipeData.servings} serving
+            </button>
+            <button className="text-xl text-gray-600 bg-white border border-gray-300 px-4 py-2 rounded-full shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-rk-masala-500 focus:ring-opacity-50">
+              {recipeData.salePrice} €
             </button>
             <div className="flex justify-left mt-4 mb-8 space-x-4">
               <Tab
@@ -89,20 +91,19 @@ const PadThai = () => {
 
             <TabContent activeTab={activeTab === "Ingredients"}>
               <ul className="text-2xl list-disc text-gray-600">
-                <li>Rice noodles</li>
-                <li>Bean sprouts</li>
-                <li>Tofu</li>
-                <li>Garlic</li>
-                <li>Shrimp</li>
+                {recipeData.ingredients.split(",").map((ingredien, index) => (
+                  <li key={index}>{ingredien}</li>
+                ))}
               </ul>
             </TabContent>
 
             <TabContent activeTab={activeTab === "Instructions"}>
               <ol className="text-2xl list-decimal text-gray-600">
-                <li>Cook rice noodles according to package instructions</li>
-                <li>Heat oil in a pan and cook shrimp until pink</li>
-                <li>Add tofu, garlic, and bean sprouts; cook until tender</li>
-                <li>Combine with cooked noodles and serve</li>
+                {recipeData.instructions
+                  .split(",")
+                  .map((instruction, index) => (
+                    <li key={index}>{instruction}</li>
+                  ))}
               </ol>
             </TabContent>
             <div className="flex justify-center mt-4 mb-8">
@@ -116,7 +117,11 @@ const PadThai = () => {
           </div>
 
           <div className="flex justify-center">
-            <img src={recipe1} alt="Padthai" className="w-full object-center" />
+            <img
+              src={recipeData.heroImage}
+              alt="heroimage"
+              className="h-[500px] w-[500px] object-center"
+            />
           </div>
         </div>
       </div>
@@ -124,4 +129,4 @@ const PadThai = () => {
   );
 };
 
-export default PadThai;
+export default RecipePage;
