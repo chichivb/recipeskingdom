@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 export function saveToLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
@@ -65,3 +67,6 @@ export const deleteRecipe = (recipeId) => {
   const updatedRecipes = recipes.filter((recipe) => recipe.id !== recipeId);
   saveToLocalStorage("recipes", updatedRecipes);
 };
+
+//to hide all the complexity from the component and that is why helpers was created
+// it creates to go to storage and get data with 9 factions

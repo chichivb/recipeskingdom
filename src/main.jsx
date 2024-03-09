@@ -4,7 +4,7 @@ import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import LandingPage from "./pages/LandingPage";
-import RecipesPage from "./pages/RecipesPage";
+import AllRecipesPage from "./pages/AllRecipePage";
 import RecipePage from "./pages/RecipePage";
 import AdminLayout from "./AdminLayout";
 import AdminSettingsPage from "./pages/AdminSettingsPage";
@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<LandingPage />} />
-          <Route path="/recipes" element={<RecipesPage />} />
+          <Route path="/recipes" element={<AllRecipesPage />} />
           <Route path="/recipes/:id" element={<RecipePage />} />
           <Route path="/completion" element={<Completion />} />
           <Route path="/admin" element={<AdminLayout />}>
@@ -35,6 +35,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 
 //React Enterpoint -
-//From here there is 'HashRounter' container knows how to read URL from browser
-//it reads from brower URL for exsample 'recipespage' if mactch on the with one on the AppRounters then it starts to render the page
-//without 'HashRounter' it wont work
+//From here there is 'borserRounter' container knows how to read URL from browser
+//it reads from brower URL for exsample 'recipespage' is path which is mactched to one of the components created on main.jsx

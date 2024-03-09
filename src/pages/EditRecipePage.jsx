@@ -25,7 +25,7 @@ const EditRecipePage = () => {
     if (allRecipes) {
       setRecipeData(allRecipes);
     }
-  }, [id]);
+  }, [getRecipeById, id]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

@@ -1,5 +1,8 @@
 import React from "react";
 import recipe1 from "./assets/padthai.jpeg";
+import picture1 from "./assets/MonikaBlack.png";
+import picture2 from "./assets/JanniferJohnson.png";
+import picture3 from "./assets/JohnJackson.png";
 
 const Testimonial = () => {
   return (
@@ -10,16 +13,16 @@ const Testimonial = () => {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="p-6">
               <img
-                src={recipe1}
+                src={picture1}
                 alt="Recipe 1"
                 className="w-24 h-24 object-cover object-left rounded-full"
               />
               <p className="text-sm text-gray-600">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus lacinia odio eu ligula consequat, sed convallis mi."
+                "I love salad recieps from RecipesKingdom and now I have much
+                healtier diet!"
               </p>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                John Doe
+                Monika Black
               </h3>
             </div>
           </div>
@@ -28,16 +31,16 @@ const Testimonial = () => {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="p-6">
               <img
-                src={recipe1}
+                src={picture2}
                 alt="Recipe 1"
                 className="w-24 h-24 object-cover object-left rounded-full"
               />
               <p className="text-sm text-gray-600">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus lacinia odio eu ligula consequat, sed convallis mi."
+                "RecipesKingdom has gotten me back in the kitchen, eating good
+                and healthy foods and saving money in the process!! LOVE IT!!"
               </p>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                John Doe
+                Jannifer Johnson
               </h3>
             </div>
           </div>
@@ -46,16 +49,15 @@ const Testimonial = () => {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="p-6">
               <img
-                src={recipe1}
+                src={picture3}
                 alt="Recipe 1"
                 className="w-24 h-24 object-cover object-left rounded-full"
               />
               <p className="text-sm text-gray-600">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus lacinia odio eu ligula consequat, sed convallis mi."
+                "I used one of the recipe tonight and was a resounding success."
               </p>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                John Doe
+                John Jackson
               </h3>
             </div>
           </div>

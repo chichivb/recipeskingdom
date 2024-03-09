@@ -56,7 +56,7 @@ const RecipePage = () => {
   }, [id]);
 
   const handleLoginClick = () => {
-    openModal(<BuyModal name="Recipe" />);
+    openModal(<BuyModal amount={recipeData.salePrice} />);
   };
 
   return (

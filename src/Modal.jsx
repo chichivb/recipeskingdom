@@ -51,3 +51,6 @@ const Modal = () => {
 };
 
 export default Modal;
+
+// Modal is use to render the content in the modal, to make the decion to render or not we get infromation from the context provider 
+

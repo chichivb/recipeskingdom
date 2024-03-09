@@ -27,3 +27,5 @@ export const ModalProvider = ({ children }) => {
     </ModalContext.Provider>
   );
 };
+
+//ModalContext uses to store that state of the model if it is open, close and what kind of content to render

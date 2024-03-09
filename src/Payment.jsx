@@ -4,7 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 
-function Payment() {
+function Payment({ amount }) {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
 
@@ -33,7 +33,7 @@ function Payment() {
             // 'Content-Type': 'application/x-www-form-urlencoded',
           },
           body: JSON.stringify({
-            amount: 1999,
+            amount: amount * 100,
           }),
         });
         const { clientSecret } = await result.json();
@@ -61,7 +61,5 @@ function Payment() {
 
 export default Payment;
 
-//useState and useEffect help to assemble componenets
-//useState gives possiblity to track and update part when neeed
-// for this payment we use usestage to hold and image information
-// and useEffect for to fetch data
+// this is from strip tutorial 
+

@@ -214,3 +214,5 @@ const AddRecipe = () => {
 };
 
 export default AddRecipe;
+
+// added faction will help to add recipe to local storage

@@ -98,3 +98,13 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+
+/*
+
+we hold the state of user log in and faction to sign, login, update and log out
+useEffect is act as a recieve from LocalStorage and in this case it is ("loggedInUser");as its key names 
+for register faction is help to prevent the duplication email address 
+withnewuser exist we return fail and the sign yup show error 
+
+however if the sign up succesed the ID will be generate using uuidv4(),
+*/

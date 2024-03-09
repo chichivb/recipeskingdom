@@ -19,3 +19,9 @@ const Layout = () => {
   );
 };
 export default Layout;
+
+/*     <AuthProvider>  we hold the state of the userm for sign up , log in and update 
+For the <ModalProvider>  hold the state for the modal and modal has faction to open and close 
+For the <Outlet /> render all the pages of the website 
+
+*/
