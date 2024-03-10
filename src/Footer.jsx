@@ -15,7 +15,10 @@ const Footer = () => {
           </div>
 
           <div className="col-span-2 flex justify-center items-center">
-            <a href="#" className="text-gray-800 hover:text-white mr-6">
+            <a
+              href="#"
+              className="text-gray-800 hover:text-green-600 text-lg font-semibold"
+            >
               ALL RECIPES
             </a>
           </div>

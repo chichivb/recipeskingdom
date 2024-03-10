@@ -21,7 +21,7 @@ const SubHeroSection = () => {
         <h2 className="text-8xl lg:text-4xl font-bold text-gray-800 mb-4">
           Popular Recipes
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-4">
           {recipeData.map((recipe) => (
             <div
               key={recipe.id}
@@ -44,7 +44,7 @@ const SubHeroSection = () => {
         </div>
         <div className="flex justify-center mt-8">
           <button
-            className="bg-rk-alto-950 text-rk-masala-50 px-4 py-3 rounded-md text-sm font-medium"
+            className="text-lg font-semibold text-white bg-green-500 px-6 py-3 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
             onClick={() => navigate("/recipes")}
           >
             VIEW MORE

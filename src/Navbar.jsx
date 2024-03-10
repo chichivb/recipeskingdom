@@ -38,7 +38,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/recipes"
-                  className="text-gray-800 hover:text-white mr-6 text-sm font-medium"
+                  className="text-gray-800 hover:text-green-600 text-lg font-semibold"
                 >
                   ALL RECIPES
                 </Link>
@@ -47,7 +47,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/admin"
-                    className="text-gray-800 hover:text-white mr-6 text-sm font-medium"
+                    className="text-gray-800 hover:text-green-600 text-lg font-semibold"
                   >
                     LIST YOUR RECIPE
                   </Link>
@@ -69,13 +69,13 @@ const Navbar = () => {
                 ) : (
                   <>
                     <button
-                      className="hover:text-rk-alto-950 px-4 py-3 rounded-md text-sm font-medium"
+                      className="text-lg font-semibold text-gray-600 hover:text-bg-green-600 px-6 py-3 rounded-md "
                       onClick={handleLoginClick}
                     >
                       LOG IN
                     </button>
                     <button
-                      className="bg-rk-alto-950 text-rk-masala-50 px-5 py-3 rounded-md text-sm font-medium"
+                      className="text-lg font-semibold text-white bg-green-500 px-6 py-3 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 "
                       onClick={handleSignupClick}
                     >
                       SIGN UP

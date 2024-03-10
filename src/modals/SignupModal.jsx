@@ -43,7 +43,7 @@ const SignupModal = () => {
             name="fullName"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
-            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:bg-green-600"
+            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none"
           />
         </div>
         <div className="mb-4">
@@ -56,7 +56,7 @@ const SignupModal = () => {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:bg-green-600"
+            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none"
           />
         </div>
         <div className="mb-6">
@@ -72,12 +72,12 @@ const SignupModal = () => {
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:bg-green-600"
+            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none "
           />
         </div>
         <button
           type="submit"
-          className=" bg-rk-alto-950 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600 mr-2"
+          className=" bg-rk-alto-950 text-white py-2 px-4 rounded-md focus:outline-none"
         >
           Create Account
         </button>

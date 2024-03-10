@@ -36,7 +36,7 @@ const LoginModal = () => {
             type="email"
             id="email"
             name="email"
-            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:bg-green-600"
+            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -52,14 +52,14 @@ const LoginModal = () => {
             type="password"
             id="password"
             name="password"
-            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:bg-green-600"
+            className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <button
           type="submit"
-          className=" bg-rk-alto-950 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600"
+          className=" bg-rk-alto-950 text-white py-2 px-4 rounded-md"
           onClick={handleLogin}
         >
           Login

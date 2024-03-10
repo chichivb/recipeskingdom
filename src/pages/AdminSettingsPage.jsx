@@ -90,7 +90,7 @@ const AdminSettingsPage = () => {
           </div>
           <button
             onClick={handleSaveAccount}
-            className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
+            className="bg-rk-alto-950 text-rk-masala-50 px-4 py-3 rounded-md text-sm font-medium focus:outline-none focus:bg-green-600 mr-2"
           >
             Save
           </button>

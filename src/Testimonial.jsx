@@ -1,5 +1,5 @@
 import React from "react";
-import recipe1 from "./assets/padthai.jpeg";
+
 import picture1 from "./assets/MonikaBlack.png";
 import picture2 from "./assets/JanniferJohnson.png";
 import picture3 from "./assets/JohnJackson.png";

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar";
 import { getAllPublishedRecipes } from "../helpers";
+import Testimonial from "../Testimonial";
+import HeroSectionRecips from "../HeroSectionRecipes";
 
 const AllRecipesPage = () => {
   const navigate = useNavigate();
@@ -22,6 +24,8 @@ const AllRecipesPage = () => {
 
   return (
     <>
+      <HeroSectionRecips />
+
       <section className="py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-12">
@@ -51,6 +55,8 @@ const AllRecipesPage = () => {
           </div>
         </div>
       </section>
+
+      <Testimonial />
     </>
   );
 };
