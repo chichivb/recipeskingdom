@@ -6,10 +6,14 @@ import picture3 from "./assets/JohnJackson.png";
 
 const Testimonial = () => {
   return (
-    <section className="py-20 bg-gray-100">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-8xl lg:text-4xl font-bold text-gray-800 mb-4">
+          Testimonial
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Testimonial 1 */}
+
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="p-6">
               <img
@@ -17,11 +21,11 @@ const Testimonial = () => {
                 alt="Recipe 1"
                 className="w-24 h-24 object-cover object-left rounded-full"
               />
-              <p className="text-sm text-gray-600">
-                "I love salad recieps from RecipesKingdom and now I have much
-                healtier diet!"
+              <p className="text-lg text-gray-600 py-2">
+                I love salad recieps from RecipesKingdom. Now I eat greener
+                healtier and feel great with my health!
               </p>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2 text-right">
                 Monika Black
               </h3>
             </div>
@@ -35,11 +39,11 @@ const Testimonial = () => {
                 alt="Recipe 1"
                 className="w-24 h-24 object-cover object-left rounded-full"
               />
-              <p className="text-sm text-gray-600">
-                "RecipesKingdom has gotten me back in the kitchen, eating good
-                and healthy foods and saving money in the process!! LOVE IT!!"
+              <p className="text-lg text-gray-600 py-2">
+                RecipesKingdom has gotten me back in the kitchen, eating good
+                and healthy foods and I AM LOVING IT!
               </p>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2 text-right">
                 Jannifer Johnson
               </h3>
             </div>
@@ -53,10 +57,11 @@ const Testimonial = () => {
                 alt="Recipe 1"
                 className="w-24 h-24 object-cover object-left rounded-full"
               />
-              <p className="text-sm text-gray-600">
-                "I used one of the recipe tonight and was a resounding success."
+              <p className="text-lg text-gray-600 py-2">
+                I used one of the recipe tonight and was a resounding success. I
+                will the fish recipe next week and see if my family like it.
               </p>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2 text-right">
                 John Jackson
               </h3>
             </div>

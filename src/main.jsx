@@ -35,5 +35,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 
 //React Enterpoint -
-//From here there is 'borserRounter' container knows how to read URL from browser
+//From here there is 'BrowserRouter' container knows how to read URL from browser
 //it reads from brower URL for exsample 'recipespage' is path which is mactched to one of the components created on main.jsx

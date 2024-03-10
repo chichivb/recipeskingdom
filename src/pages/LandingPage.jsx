@@ -4,7 +4,7 @@ import Testimonial from "../Testimonial";
 
 const LandingPage = () => {
   return (
-    <div className="bg-rk-alto-50">
+    <div className="">
       <HeroSection />
       <SubHeroSection />
       <Testimonial />

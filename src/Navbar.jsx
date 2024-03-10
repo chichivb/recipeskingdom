@@ -38,18 +38,18 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/recipes"
-                  className="text-gray-400 hover:text-white mr-6"
+                  className="text-gray-800 hover:text-white mr-6 text-sm font-medium"
                 >
-                  All Recipes
+                  ALL RECIPES
                 </Link>
               </li>
               {isLoggedIn && (
                 <li>
                   <Link
                     to="/admin"
-                    className="text-gray-400 hover:text-white mr-6"
+                    className="text-gray-800 hover:text-white mr-6 text-sm font-medium"
                   >
-                    List your recipe
+                    LIST YOUR RECIPE
                   </Link>
                 </li>
               )}
