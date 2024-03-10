@@ -4,10 +4,10 @@ import heroImage from "./assets/cooking.png";
 const HeroSection = () => {
   return (
     <section className="py-20">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 sm:px-8 lg:px-8">
         <div className="grid grid-cols-2">
           <div className="col-span-1 flex flex-col justify-center">
-            <h1 className="text-5xl lg:text-5xl font-bold text-gray-800 mb-4">
+            <h1 className="text-10xl lg:text-5xl font-bold text-gray-800 mb-4">
               Cooking Made Easy
             </h1>
 
