@@ -22,7 +22,7 @@ const AllRecipesPage = () => {
 
   return (
     <>
-      <section className="bg-gray-200 py-2">
+      <section className="py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-12">
             Popular Recipes

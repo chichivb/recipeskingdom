@@ -15,8 +15,8 @@ const Footer = () => {
           </div>
 
           <div className="col-span-2 flex justify-center items-center">
-            <a href="#" className="text-gray-400 hover:text-white mr-6">
-              Recipes
+            <a href="#" className="text-gray-800 hover:text-white mr-6">
+              ALL RECIPES
             </a>
           </div>
 
@@ -24,19 +24,19 @@ const Footer = () => {
             <nav>
               <div className="col-span-2 flex justify-center items-center">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/cleankitchenmeals/"
                   className="text-gray-400 hover:text-white mr-4 text-2xl"
                 >
                   <FaFacebook />
                 </a>
                 <a
-                  href="#"
+                  href="https://twitter.com/ckmeals"
                   className="text-gray-400 hover:text-white mr-4 text-2xl"
                 >
                   <FaTwitter />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/cleankitchenmeals/"
                   className="text-gray-400 hover:text-white mr-4 text-2xl"
                 >
                   <FaInstagram />

@@ -44,7 +44,7 @@ const Recipes = () => {
             ))}
           </div>
           <div className="flex justify-center mt-8">
-            <button className="bg-rk-alto-950 text-rk-masala-50 px-4 py-2 rounded-md text-sm font-medium">
+            <button className=" bg-rk-alto-950 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600 mr-2">
               VIEW MORE
             </button>
           </div>
