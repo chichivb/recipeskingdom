@@ -41,53 +41,43 @@ const HeroSection = () => {
         <div className="logos logos--fill flex justify-center  pt-20 gap-16">
           <a
             href="https://www.buzzfeed.com/annaborges/mealime-meal-planning-app"
-            className="mr-4"
+            className="h-8"
           >
             <img
               src="https://landen.imgix.net/omhfx82j2z7u/assets/dw8a4c0b.png?w=200&amp;h=160"
-              className="logos__logo"
-              srcset="https://landen.imgix.net/omhfx82j2z7u/assets/dw8a4c0b.png?w=200&amp;h=160 2x"
+              className="h-8"
+              srcSet="https://landen.imgix.net/omhfx82j2z7u/assets/dw8a4c0b.png?w=200&amp;h=160 2x"
               alt="BuzzFeed Logo"
             />
           </a>
           <a
             href="https://www.washingtonpost.com/lifestyle/magazine/iso-meal-planning-app-for-single-busy-professional/2016/08/17/17f0edde-54d5-11e6-bbf5-957ad17b4385_story.html"
-            className="mr-4"
+            className="h-8"
           >
             <img
               src="https://landen.imgix.net/omhfx82j2z7u/assets/dhzl670a.png?w=200&amp;h=160"
-              className="logos__logo"
-              srcset="https://landen.imgix.net/omhfx82j2z7u/assets/dhzl670a.png?w=200&amp;h=160 2x"
+              className="h-8"
+              srcSet="https://landen.imgix.net/omhfx82j2z7u/assets/dhzl670a.png?w=200&amp;h=160 2x"
               alt="Washington Post Logo"
             />
           </a>
-          <a
-            href="https://www.goodhousekeeping.com/food-recipes/a28377603/how-to-meal-prep/"
-            className="mr-4"
-          >
-            <img
-              src="https://landen.imgix.net/omhfx82j2z7u/assets/4oceu0s2.png?w=200&amp;h=160"
-              className="logos__logo"
-              srcset="https://landen.imgix.net/omhfx82j2z7u/assets/4oceu0s2.png?w=200&amp;h=160 2x"
-              alt="Good Housekeeping Logo"
-            />
-          </a>
+
           <a
             href="https://www.vogue.es/living/articulos/apps-cocina-recetas-alimentacion"
-            className="mr-4"
+            className="h-8"
           >
             <img
               src="https://landen.imgix.net/omhfx82j2z7u/assets/f8n2b6ob.png?w=200&amp;h=160"
-              className="logos__logo"
-              srcset="https://landen.imgix.net/omhfx82j2z7u/assets/f8n2b6ob.png?w=200&amp;h=160 2x"
+              className="h-8"
+              srcSet="https://landen.imgix.net/omhfx82j2z7u/assets/f8n2b6ob.png?w=200&amp;h=160 2x"
               alt="Vogue Logo"
             />
           </a>
           <a href="https://mashable.com/article/grocery-shopping-apps/">
             <img
               src="https://landen.imgix.net/omhfx82j2z7u/assets/8uro7b93.png?w=200&amp;h=160"
-              className="logos__logo"
-              srcset="https://landen.imgix.net/omhfx82j2z7u/assets/8uro7b93.png?w=200&amp;h=160 2x"
+              className="h-8"
+              srcSet="https://landen.imgix.net/omhfx82j2z7u/assets/8uro7b93.png?w=200&amp;h=160 2x"
               alt="Mashable Logo"
             />
           </a>
